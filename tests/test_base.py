@@ -1,13 +1,15 @@
 from flask_testing import TestCase
 from flask import current_app, url_for
-
-from main import app
+from app.config import Config
+from app import create_app
+import sys
+sys.path.insert(0, '/Volumes/develMac/venv/todoApp')
 
 
 class MainTest(TestCase):
     def create_app(self):
-        app.config['TESTING'] = True
-        app.config['WTF_CSRF_ENABLED'] = False
+
+        app = create_app()
 
         return app
 

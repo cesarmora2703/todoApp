@@ -1,5 +1,5 @@
 from flask import make_response, redirect, request, render_template, session, url_for, flash
-from flask_bootstrap import Bootstrap
+
 import unittest
 from app import create_app
 from app.forms import LoginForm
@@ -41,22 +41,12 @@ def index():
 def hello():
     # user_ip = request.cookies.get('user_ip')
     user_ip = session.get('user_ip')
-    login_form = LoginForm()
     username = session.get('username')
 
     context = {
         'user_ip': user_ip,
         'todos': todos,
-        'login_form': login_form,
         'username': username,
     }
-
-    if login_form.validate_on_submit():
-        username = login_form.username.data
-        session['username'] = username
-
-        flash('Nombre de usuario registrado con éxito.')
-
-        return redirect(url_for('index'))
 
     return render_template('hello.html', **context)
