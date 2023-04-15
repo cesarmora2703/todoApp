@@ -12,18 +12,12 @@ Bienvenido
     <h1>Bienvenido, {{ username | capitalize }}</h1>
 {% endif %}
 
-
 {% if user_ip %}
-<h3>Hello Platzi, la dirección ip del usuario es {{ user_ip }}</h3>
+<h3>Tú dirección ip es {{ user_ip }}</h3>
 {% else %}
 <a href="{{ url_for('index')}}">Ir a inicio</a>
 {% endif %}
 
-<div class="container">
-    {{ wtf.quick_form(login_form)}}
-</div>
-
-<br>
 <ul>
     {% for todo in todos %}
         {{ macros.render_todo(todo) }}    

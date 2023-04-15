@@ -1,5 +1,5 @@
 from flask import make_response, redirect, request, render_template, session, url_for, flash
-
+import click
 import unittest
 from app import create_app
 from app.forms import LoginForm
@@ -37,7 +37,7 @@ def index():
     return response
 
 
-@app.route('/hello', methods=['GET', 'POST'])
+@app.route('/hello', methods=['GET'])
 def hello():
     # user_ip = request.cookies.get('user_ip')
     user_ip = session.get('user_ip')
