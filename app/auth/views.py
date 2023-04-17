@@ -60,7 +60,7 @@ def signup():
             password_hash = generate_password_hash(password)
             user_data = UserData(username, password_hash)
             user_put(user_data)
-            # Createw user model
+            # Create user model
             user = UserModel(user_data)
             # Login new user
             login_user(user)
